@@ -1,15 +1,16 @@
 import "./App.css";
-import MultpleInput from "./components/MultpleInput";
-import TestArray from "./components/TestArray";
-import TodoMyTry from "./components/TodoMyTry";
+import TodoApp from "./components/TodoApp";
 
 function App() {
   return (
     <>
       <h1>React is ready</h1>
       {/* <MultpleInput /> */}
-      <TodoMyTry />
       {/* <TestArray /> */}
+      {/* <FormSubmit1 /> */}
+
+      {/* <TodoMyTry /> */}
+      <TodoApp />
     </>
   );
 }
