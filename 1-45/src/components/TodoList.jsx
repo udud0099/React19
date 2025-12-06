@@ -2,9 +2,12 @@ import React from "react";
 import TodoItem from "./TodoItem";
 
 const TodoList = ({ todos, setTodos }) => {
+  const sortedTodos = todos
+    .slice()
+    .sort((a, b) => Number(a.done) - Number(b.done));
   return (
     <div>
-      {todos.map((item, index) => (
+      {sortedTodos.map((item, index) => (
         <TodoItem
           key={index}
           item={item}
