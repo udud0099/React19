@@ -27,6 +27,8 @@ const Board = () => {
   } else {
     status = "Next player: " + (xIsNext ? "X" : "O");
   }
+  console.log(calculateWinner(squares), "winner test2");
+  
 
   return (
     <>
