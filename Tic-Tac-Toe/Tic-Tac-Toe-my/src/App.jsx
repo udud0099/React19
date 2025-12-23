@@ -1,13 +1,11 @@
- 
+import Board from "./components/Board";
 
 function App() {
-  
-
   return (
-    <>
-       <h1 className="text-4xl text-red-900">hello</h1>
-    </>
-  )
+    <div className="bg-black text-white h-screen flex justify-center items-center">
+      <Board />
+    </div >
+  );
 }
 
-export default App
+export default App;
