@@ -1,4 +1,4 @@
-import { useGetPostsQuery, useCreatePostsMutation } from "./services/jsonplaceholderApi";
+import { useGetPostsQuery } from "./services/jsonplaceholderApi";
 
 
 
