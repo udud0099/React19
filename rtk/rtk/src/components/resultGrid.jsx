@@ -27,7 +27,7 @@ const ResultGrid = () => {
         }
         if (activeTab == "gif") {
           let response = await fetchGIFs(query);
-          data = response.data.results;
+          data = response;
         }
         console.log(data);
       };
