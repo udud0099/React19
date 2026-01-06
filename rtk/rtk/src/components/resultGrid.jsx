@@ -19,15 +19,34 @@ const ResultGrid = () => {
         let data;
         if (activeTab == "photos") {
           let response = await fetchPhotos(query);
-          data = response.results;
+          // data = response.results;
+          data = response.results.map((item) => ({
+            id: item.id,
+            type: "photo",
+            title: item.alt_description,
+            thumbnail: item.urls.small,
+            src: item.urls.full,
+          }));
         }
         if (activeTab == "videos") {
           let response = await fetchVideos(query);
-          data = response.videos;
+          data = response.videos.map((item)=>({
+            id:item.id,
+            type: "video",
+            title: item.user.name || 'video',
+            thumbnail: item.image,
+            src: item.video_files[0].link,
+          }))
         }
         if (activeTab == "gif") {
           let response = await fetchGIFs(query);
-          data = response;
+          data = response.map((item)=>({
+            id:item.id,
+            type: "gif",
+            title: item.title || "GIF",
+            thumbnail: item.url,
+            src: item.url,
+          }));
         }
         console.log(data);
       };
