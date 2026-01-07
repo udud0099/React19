@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const MyTry = () => {
+const MyTry2 = () => {
   const [wei, setWei] = useState(0);
   const [hei, setHei] = useState(0);
   const [bmi, setBmi] = useState(0);
@@ -60,4 +60,4 @@ const MyTry = () => {
   );
 };
 
-export default MyTry;
+export default MyTry2;
