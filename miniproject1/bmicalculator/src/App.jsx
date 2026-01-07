@@ -1,10 +1,10 @@
 import "./App.css";
-import MyTry from "./components/MyTry";
+import MyTry2 from "./components/MyTry2";
 
 function App() {
   return (
     <>
-      <MyTry />
+      <MyTry2 />
     </>
   );
 }

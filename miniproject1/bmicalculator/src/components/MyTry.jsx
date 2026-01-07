@@ -5,7 +5,7 @@ const MyTry = () => {
   const [hei, setHei] = useState(0);
   return (
     <>
-      <h1 className="text-8xl text-green-700">BMI Calculator </h1>
+      {/* <h1 className="text-8xl text-green-700">BMI Calculator </h1> */}
       <div>
         <p>weight</p>
         <input
