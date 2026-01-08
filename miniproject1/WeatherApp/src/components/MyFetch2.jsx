@@ -12,6 +12,7 @@ const MyFetch2 = () => {
     )
       .then((response) => response.json())
       .then((data) => setRepos(data));
+    console.log(data);
   };
   useEffect(() => {
     // fetch call used to be here
@@ -42,7 +43,7 @@ const MyFetch2 = () => {
       <h1>City : {repos.name}</h1>
       <h1>City : {repos.weather?.[0]?.description}</h1>
       <h1>weather : {repos.weather?.[0]?.main}</h1>
-      <h1>Temp : {repos.main?.temp} C</h1> 
+      <h1>Temp : {repos.main?.temp} C</h1>
     </div>
   );
 };
