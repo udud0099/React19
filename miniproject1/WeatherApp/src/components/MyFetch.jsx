@@ -13,6 +13,9 @@ const MyFetch = () => {
     // fetch call used to be here
     const data = fetch(
       //   "https://api.openweathermap.org/geo/1.0/direct?q=Kathmandu&appid=65a843b0e9abbefbcb58359a2af2db8f"
+      // ` https://api.openweathermap.org/data/2.5/weather?q=${
+      //   sv || "Kathmandu"
+      // }&units=metric&appid=65a843b0e9abbefbcb58359a2af2db8f`
       ` https://api.openweathermap.org/data/2.5/weather?q=${
         sv || "Kathmandu"
       }&units=metric&appid=65a843b0e9abbefbcb58359a2af2db8f`
@@ -20,7 +23,7 @@ const MyFetch = () => {
       .then((response) => response.json())
       .then((data) => setRepos(data));
   }, [sv]);
-//   console.log(repos.weather[0].main);
+  console.log(repos);
 
   return (
     <div>
@@ -38,9 +41,10 @@ const MyFetch = () => {
       <br />
       <h1>Today Weather is</h1>
       <h1>City : {repos.name}</h1>
-      {/* <h1>City : {repos.weather[0].description}</h1> */}
-      <h1>weather : {repos.weather[0].main}</h1>
-      <h1>weather : {repos.weather[0].description}</h1>
+      <h1>City : {repos.weather?.[0]?.description}</h1>
+      <h1>weather : {repos.weather?.[0]?.main}</h1>
+      <h1>Temp : {repos.main?.temp} C</h1>
+      {/* <h1>weather : {repos.weather[0].description}</h1> */}
     </div>
   );
 };
