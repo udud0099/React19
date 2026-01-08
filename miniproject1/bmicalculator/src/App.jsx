@@ -6,9 +6,9 @@ import ColorGen from "./components/ColorGen";
 function App() {
   return (
     <>
-      {/* <MyTry2 /> */}
-      {/* <MyTry /> */} 
-      <ColorGen /> 
+      {/* <MyTry /> */}
+      {/* <ColorGen />  */}
+      <MyTry2 />
     </>
   );
 }

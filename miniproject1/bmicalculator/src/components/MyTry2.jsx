@@ -26,7 +26,7 @@ const MyTry2 = () => {
           className="border  border-black py-1 px-4 my-2 w-full rounded-md"
           placeholder="weight"
           onChange={(e) => (setWei(e.target.value), setBmi(0))}
-          value={wei == 0 ? null : wei}
+          value={wei == 0 ? "" : wei}
         />
         <p>height</p>
         <input
@@ -34,7 +34,7 @@ const MyTry2 = () => {
           className="border border-black py-1 px-4 my-2 w-full rounded-md"
           placeholder="height"
           onChange={(e) => (setHei(e.target.value), setBmi(0))}
-          value={hei == 0 ? null : hei}
+          value={hei == 0 ? "" : hei}
         />
       </div>
       <div>
