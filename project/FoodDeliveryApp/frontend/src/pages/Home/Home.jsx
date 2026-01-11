@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import Hero from "../../components/Hero";
 import ExploreMenu from "../../components/ExploreMenu";
+import FoodDisplay from "../../components/FoodDisplay";
 
 const Home = () => {
-  const [catogory, setCatogory] = React.useState("ALL");
+  const [catogory, setCatogory] = useState("All");
   return (
     <div className="w-7xl mx-auto flex gap-8 flex-col py-8">
       <Hero />
       <ExploreMenu catogory={catogory} setCatogory={setCatogory} />
-      Home Home
+      <FoodDisplay catogory={catogory} />
     </div>
   );
 };
