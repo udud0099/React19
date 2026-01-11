@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useContext } from "react";
 import assets from "../assets/assets";
+import { StoreContext } from "../context/StoreContext";
 
 const FoodItem = ({ foodItem, catogory }) => {
-  const [itemCount, setItemCount] = useState(0);
+  const { cartItems, addTocart, removeFromCart } = useContext(StoreContext);
   return (
     <div>
       {catogory === "All" || catogory === foodItem.category ? (
@@ -12,27 +13,29 @@ const FoodItem = ({ foodItem, catogory }) => {
           <p>{foodItem.description}</p>
           <p>Price: ${foodItem.price}</p>
           <div className="cursor-pointer">
-            {itemCount === 0 ? (
+            {!cartItems[foodItem._id] ? (
               <img
                 src={assets.add_icon_white}
                 alt="{add_icon_white}"
-                onClick={() => setItemCount(itemCount + 1)}
+                onClick={() => addTocart(foodItem._id)}
               />
-            ) : itemCount > 0 ? (
+            ) : cartItems[foodItem._id] > 0 ? (
               <div className="flex items-center gap-1">
                 <img
-                src={assets.remove_icon_red}
-                alt="{remove_icon_red}"
-                onClick={() => setItemCount(itemCount - 1)}
-              />
-                <span className="mx-2">{itemCount}</span>
+                  src={assets.remove_icon_red}
+                  alt="{remove_icon_red}"
+                  onClick={() => removeFromCart(foodItem._id)}
+                />
+                <span className="mx-2">{cartItems[foodItem._id]}</span>
                 <img
-                src={assets.add_icon_green}
-                alt="{add_icon_green}"
-                onClick={() => setItemCount(itemCount + 1)}
-              />
+                  src={assets.add_icon_green}
+                  alt="{add_icon_green}"
+                  onClick={() => addTocart(foodItem._id)}
+                />
               </div>
-            ):""}
+            ) : (
+              ""
+            )}
           </div>
         </div>
       ) : (
