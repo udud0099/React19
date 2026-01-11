@@ -3,7 +3,12 @@ import { food_list } from "../assets/assets";
 export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
-  const [cartItems, setCartItems] = useState({});
+  const [cartItems, setCartItems] = useState(
+    JSON.parse(localStorage.getItem("cartItems")) || {}
+  );
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems, setCartItems]);
 
   const addTocart = (itemId) => {
     if (!cartItems[itemId]) {
@@ -25,7 +30,7 @@ const StoreContextProvider = (props) => {
       [itemId]: prev[itemId] - 1,
     }));
   };
-  
+
   useEffect(() => {
     console.log("Cart Items:", cartItems);
   }, [cartItems]);
