@@ -3,17 +3,20 @@ import Parrent from "./components/Parrent";
 import { MyContext } from "./ContextApi/Context";
 
 function App() {
-  const [user, setUser] = useState(
-    JSON.parse(localStorage.getItem("is-open")) || {
-      name: "john",
-      age: 24,
-      email: "john@gmail.com",
-    }
-  );
+  const [user, setUser] = useState(() => {
+    const saved = localStorage.getItem("is-open");
+    return saved
+      ? JSON.parse(saved)
+      : {
+          name: "john",
+          age: 24,
+          email: "john@gmail.com",
+        };
+  });
+
   useEffect(() => {
     localStorage.setItem("is-open", JSON.stringify(user));
-  }, [user, setUser]);
-
+  }, [user]);
   return (
     <>
       <MyContext.Provider value={{ user, setUser }}>

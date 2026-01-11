@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Hero from "../../components/Hero";
 import ExploreMenu from "../../components/ExploreMenu";
 import FoodDisplay from "../../components/FoodDisplay";
+import MobileAppDownload from "../../components/MobileAppDownload";
 
 const Home = () => {
   const [catogory, setCatogory] = useState(JSON.parse(localStorage.getItem('IsCatogory')) || "All");
@@ -14,6 +15,7 @@ const Home = () => {
       <Hero />
       <ExploreMenu catogory={catogory} setCatogory={setCatogory} />
       <FoodDisplay catogory={catogory} />
+      <MobileAppDownload />
     </div>
   );
 };
