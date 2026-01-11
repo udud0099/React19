@@ -4,7 +4,8 @@ export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
   const [cartItems, setCartItems] = useState(
-    JSON.parse(localStorage.getItem("cartItems")) || {}
+     JSON.parse(localStorage.getItem("cartItems")) ||
+    {}
   );
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
@@ -25,10 +26,16 @@ const StoreContextProvider = (props) => {
   };
 
   const removeFromCart = (itemId) => {
-    setCartItems((prev) => ({
-      ...prev,
-      [itemId]: prev[itemId] - 1,
-    }));
+    if (cartItems[itemId] > 1) {
+      setCartItems((prev) => ({
+        ...prev,
+        [itemId]: prev[itemId] - 1,
+      }));
+    } else {
+      const updatedCart = { ...cartItems };
+      delete updatedCart[itemId];
+      setCartItems(updatedCart);
+    }
   };
 
   useEffect(() => {
